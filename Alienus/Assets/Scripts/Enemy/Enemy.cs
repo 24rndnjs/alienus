@@ -6,11 +6,14 @@ public class Enemy : MonoBehaviour
 {
     public GameObject[] players; // 모든 플레이어를 담는 배열
     public float speed;
+    public int maxHP = 100;
+    private int currentHP;
     private GameObject closestPlayer;
     private float distance;
 
     void Start()
     {
+        currentHP = maxHP;
     }
 
     void Update()
@@ -43,5 +46,21 @@ public class Enemy : MonoBehaviour
                 closestPlayer = player;
             }
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHP -= damage;
+
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        
+        Destroy(gameObject);
     }
 }
