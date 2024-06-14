@@ -17,3 +17,4 @@ MonoBehaviour:
   defense: 8
   attack: 30
   speed: 3
+  classification: normal
