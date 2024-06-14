@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8963e5ca8047b4d4cb2802dc8bfd49f0, type: 3}
   m_Name: ghost cleaner
   m_EditorClassIdentifier: 
-  enemyName: 
-  maxHP: 0
-  defense: 0
-  attack: 0
-  speed: 0
+  enemyName: ' ghost cleaner'
+  maxHP: 150
+  defense: 3
+  attack: 15
+  speed: 2
