@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject[] players; // 모든 플레이어를 담는 배열
-    public float speed;
-    public int maxHP = 100;
+    public EnemyData enemyData; // 적 데이터 스크립터블 오브젝트
     private int currentHP;
+
+    public GameObject[] players; // 모든 플레이어를 담는 배열
     private GameObject closestPlayer;
     private float distance;
 
     void Start()
     {
-        currentHP = maxHP;
+        currentHP = enemyData.maxHP;
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            transform.position = Vector2.MoveTowards(this.transform.position, closestPlayer.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, closestPlayer.transform.position, enemyData.speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
@@ -50,7 +50,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHP -= damage;
+        int actualDamage = Mathf.Max(damage - enemyData.defense, 0); // 방어력을 고려한 실제 피해량
+        currentHP -= actualDamage;
 
         if (currentHP <= 0)
         {
@@ -60,7 +61,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        
         Destroy(gameObject);
     }
 }
