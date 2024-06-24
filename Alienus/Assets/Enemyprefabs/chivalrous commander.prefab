@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3725705269007518121}
   - component: {fileID: 4216381766001877545}
   - component: {fileID: 7364920449822235278}
+  - component: {fileID: 2962836283338188429}
   m_Layer: 0
   m_Name: chivalrous commander
   m_TagString: Untagged
@@ -98,4 +99,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: cba0a237fe5a5ad40835f7eaef6c83dd, type: 2}
-  players: []
+  space: 0
+  closestPlayer: {fileID: 0}
+--- !u!114 &2962836283338188429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365209116315075139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f5cc7be3c7c7541801ca5276861a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 11400000, guid: 175150fd625eb954bb55312aae931eaa, type: 2}
+  servant: {fileID: 11400000, guid: 897707bafcc7d0843820a30e73b21689, type: 2}
+  commander: {fileID: 11400000, guid: 204adfdf78d1da84f96d858236a90929, type: 2}
+  infantry: {fileID: 11400000, guid: 9a5a008edf626fa4e99d27f86bc2ac26, type: 2}
